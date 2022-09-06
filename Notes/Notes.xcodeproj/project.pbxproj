@@ -15,6 +15,7 @@
 		8B69363828C7871300AA6DB5 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69363728C7871300AA6DB5 /* ComplicationController.swift */; };
 		8B69363A28C7871400AA6DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B69363928C7871400AA6DB5 /* Assets.xcassets */; };
 		8B69363D28C7871400AA6DB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B69363C28C7871400AA6DB5 /* Preview Assets.xcassets */; };
+		8B69365128C788C000AA6DB5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69365028C788C000AA6DB5 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		8B69363928C7871400AA6DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B69363C28C7871400AA6DB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B69363E28C7871400AA6DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B69365028C788C000AA6DB5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				8B69363728C7871300AA6DB5 /* ComplicationController.swift */,
 				8B69363E28C7871400AA6DB5 /* Info.plist */,
 				8B69364C28C7873400AA6DB5 /* Presentation */,
+				8B69364F28C788B500AA6DB5 /* Domain */,
 				8B69363B28C7871400AA6DB5 /* Preview Content */,
 			);
 			path = "Notes WatchKit Extension";
@@ -153,6 +156,14 @@
 				8B69363928C7871400AA6DB5 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8B69364F28C788B500AA6DB5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8B69365028C788C000AA6DB5 /* Note.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				8B69363428C7871300AA6DB5 /* ContentView.swift in Sources */,
 				8B69363628C7871300AA6DB5 /* NotesApp.swift in Sources */,
 				8B69363828C7871300AA6DB5 /* ComplicationController.swift in Sources */,
+				8B69365128C788C000AA6DB5 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

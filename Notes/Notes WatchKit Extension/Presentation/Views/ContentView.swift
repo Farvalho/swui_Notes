@@ -8,9 +8,106 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var notes: [Note] = [Note]()
+    @State private var text: String = ""
+    
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        VStack {
+            HStack(alignment: .center, spacing: 6) {
+                TextField("Add new note", text: $text)
+                Button {
+                    guard text.isEmpty == false else { return }
+                    
+                    let note = Note(id: UUID(), text: text)
+                    notes.append(note)
+                    text = ""
+                    save()
+                    
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .font(.system(size: 42, weight: .semibold))
+                }
+                .fixedSize()
+                .buttonStyle(.plain)
+                .foregroundColor(.accentColor)
+                
+            } //: HStack
+            
+            Spacer()
+            
+            if notes.count > 0 {
+                List {
+                    ForEach(0..<notes.count, id: \.self) { i in
+                        HStack {
+                            Capsule()
+                                .frame(width: 4)
+                                .foregroundColor(.accentColor)
+                            
+                            Text(notes[i].text)
+                                .lineLimit(1)
+                                .padding(.leading, 5)
+                                .disableAutocorrection(true)
+                            
+                        } //: HStack
+                    } //: ForEach
+                    .onDelete(perform: delete)
+                    
+                }//: List
+                
+            } else {
+                Spacer()
+                Image(systemName: "note.text")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.gray)
+                    .opacity(0.25)
+                    .padding(25)
+                
+                Spacer()
+            }
+            
+        } //: VStack
+        .navigationTitle("Notes")
+        .onAppear(perform: {
+            load()
+        })
+    }
+    
+    func save() {
+        DispatchQueue.main.async {
+            do {
+                let data = try JSONEncoder().encode(notes)
+                let url = getDocumentDirectory().appendingPathComponent("notes")
+                
+                try data.write(to: url)
+                
+            } catch {
+                print("Could not save data")
+            }
+        }
+    }
+    
+    func load() {
+        do {
+            let url = getDocumentDirectory().appendingPathComponent("notes")
+            let data = try Data(contentsOf: url)
+            
+            notes = try JSONDecoder().decode([Note].self, from: data)
+            
+        } catch {
+            print("No data file found")
+        }
+    }
+    
+    func delete(offsets: IndexSet) {
+        notes.remove(atOffsets: offsets)
+        save()
+    }
+    
+    func getDocumentDirectory() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
     }
 }
 
