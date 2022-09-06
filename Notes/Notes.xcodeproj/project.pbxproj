@@ -113,11 +113,10 @@
 		8B69363228C7871300AA6DB5 /* Notes WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				8B69363328C7871300AA6DB5 /* ContentView.swift */,
 				8B69363528C7871300AA6DB5 /* NotesApp.swift */,
 				8B69363728C7871300AA6DB5 /* ComplicationController.swift */,
-				8B69363928C7871400AA6DB5 /* Assets.xcassets */,
 				8B69363E28C7871400AA6DB5 /* Info.plist */,
+				8B69364C28C7873400AA6DB5 /* Presentation */,
 				8B69363B28C7871400AA6DB5 /* Preview Content */,
 			);
 			path = "Notes WatchKit Extension";
@@ -129,6 +128,31 @@
 				8B69363C28C7871400AA6DB5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B69364C28C7873400AA6DB5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8B69364D28C7873A00AA6DB5 /* Views */,
+				8B69364E28C7873D00AA6DB5 /* Resources */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8B69364D28C7873A00AA6DB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B69363328C7871300AA6DB5 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B69364E28C7873D00AA6DB5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B69363928C7871400AA6DB5 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
